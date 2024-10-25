@@ -126,5 +126,5 @@ def sum_points_for_player(player):
 
 
 
-ls = [1,2,3,4,5,6]
-print(results_for_round(ls))
+#ls = [1,2,3,4,5,6]
+#print(results_for_round(ls))

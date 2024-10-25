@@ -190,27 +190,27 @@ def map_list_to_dict(ls):
 
 
 
-print("one pair from ",numers, "too ===   ",one_pair(numers))
-print ("two pair from ",numers, "too ===   ",two_pair(numers))
-print ("three pair from ",numers, "too ===   ",three_pair(numers))
+#print("one pair from ",numers, "too ===   ",one_pair(numers))
+##print ("two pair from ",numers, "too ===   ",two_pair(numers))
+#print ("three pair from ",numers, "too ===   ",three_pair(numers))
 
-print("tre of kind ",numers, "too ===   ",three_of_a_kind(numers))
-print("four of kind ",numers, "too ===   ",four_of_a_kind(numers))
+#print("tre of kind ",numers, "too ===   ",three_of_a_kind(numers))
+#print("four of kind ",numers, "too ===   ",four_of_a_kind(numers))
 
-print("smal_straight ",numers, "too ===   ",smal_straight(numers))
-print("big_straight ",numers, "too ===   ",large_straight(numers))
-print("full_house ",numers, "too ===   ",full_house(numers))
-print("chance ",numers, "too ===   ",chance(numers))
-print("maxi_yatzy",numers, "too ===   ",maxi_yatzy(numers))
-
-
-print("villa ->>>>>>>>>> " , villa(numers))
-print("TOWEL --------> " ,  towel(numers))
+#print("smal_straight ",numers, "too ===   ",smal_straight(numers))
+#print("big_straight ",numers, "too ===   ",large_straight(numers))
+#print("full_house ",numers, "too ===   ",full_house(numers))
+#print("chance ",numers, "too ===   ",chance(numers))
+#print("maxi_yatzy",numers, "too ===   ",maxi_yatzy(numers))
 
 
-print( "ones_sixes !!!!!  ", ones_sixes(numers, 6))
-print( "ones_fives !!!!!  ", ones_sixes(numers, 5))
-print( "ones_four !!!!!  ", ones_sixes(numers, 4))
-print( "ones_three !!!!!  ", ones_sixes(numers, 3))
-print( "ones_two !!!!!  ", ones_sixes(numers, 2))
-print( "ones_ones !!!!!  ", ones_sixes(numers, 1))
+#print("villa ->>>>>>>>>> " , villa(numers))
+#print("TOWEL --------> " ,  towel(numers))
+
+
+#print( "ones_sixes !!!!!  ", ones_sixes(numers, 6))
+#print( "ones_fives !!!!!  ", ones_sixes(numers, 5))
+#rint( "ones_four !!!!!  ", ones_sixes(numers, 4))
+#rint( "ones_three !!!!!  ", ones_sixes(numers, 3))
+#rint( "ones_two !!!!!  ", ones_sixes(numers, 2))
+#print( "ones_ones !!!!!  ", ones_sixes(numers, 1))
