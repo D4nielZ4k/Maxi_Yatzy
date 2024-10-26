@@ -47,7 +47,7 @@ def results_for_round(ls):
 
     chance = combinations.chance(ls)
 
-    maxi_yatzy = combinations.chance(ls)
+    maxi_yatzy = combinations.maxi_yatzy(ls)
 
     return {
         'ones': ones,
@@ -64,7 +64,7 @@ def results_for_round(ls):
         'large_straight': large_straight,
         'full_house': full_house,
         'chance': chance,
-        'yatzy': maxi_yatzy
+        'maxi yatzy': maxi_yatzy
     }
 
 
@@ -126,5 +126,5 @@ def sum_points_for_player(player):
 
 
 
-#ls = [1,2,3,4,5,6]
-#print(results_for_round(ls))
+ls = [1,2,3,4,5,6]
+print(results_for_round(ls))
