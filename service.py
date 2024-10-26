@@ -52,60 +52,32 @@ def results_for_round(ls):
     return {
         'ones': ones,
         'twos': twos,
-        'tres': tres,
+        'three': tres,
         'fours': fours,
         'fives': fives,
         'sixes': sixes,
-        'one_pair': one_pair,
-        'two_pairs': two_pairs,
-        'three_of_a_kind': three_of_a_kind,
-        'four_of_a_kind': four_of_a_kind,
-        'small_straight': small_straight,
-        'large_straight': large_straight,
-        'full_house': full_house,
+        'one pair': one_pair,
+        'two pairs': two_pairs,
+        'three pairs': three_pair,
+        'three of a kind': three_of_a_kind,
+        'four of a kind': four_of_a_kind,
+        'five of a kind': five_of_a_kind,
+        'small straight': small_straight,
+        'large straight': large_straight,
+        'full straignt': full_straight,
+        'full house': full_house,
+        'villa' :villa,
+        'towel' : towel,
         'chance': chance,
         'maxi yatzy': maxi_yatzy
     }
 
 
-def select_resoult(choice, ls):
-    match choice:
-        case 'ones':
-           return results_for_round(ls)['ones']
-        case 'twos':
-           return results_for_round(ls)['twos']
-        case 'tres':
-           return results_for_round(ls)['tres']
-        case 'fours':
-           return results_for_round(ls)['fours']
-        case 'fives':
-           return results_for_round(ls)['fives']
-        case 'sixes':
-           return results_for_round(ls)['sixes']
-        case 'sixes':
-           return results_for_round(ls)['sixes']
-       
-        case 'one_pair':
-           return results_for_round(ls)['one_pair']
-        case 'two_pairs':
-           return results_for_round(ls)['two_pairs']
-        case 'three_of_a_kind':
-           return results_for_round(ls)['three_of_a_kind']
-        case 'small_straight':
-           return results_for_round(ls)['small_straight']
-        case 'big_straight':
-           return results_for_round(ls)['large_straight']
-        case 'full_house':
-           return results_for_round(ls)['full_house']
-        case 'chance':
-           return results_for_round(ls)['chance']
-        case 'yatzy':
-           return results_for_round(ls)['yatzy']
        
 def sum_for_bonus(player):
     ones = player['ones']
     twos = player['twos']
-    tres = player['tres']
+    tres = player['three']
     fours = player['fours']
     fives = player['fives']
     sixes = player['sixes']
@@ -113,18 +85,48 @@ def sum_for_bonus(player):
 
 def sum_points_for_player(player):
    bonus = 50 if sum_for_bonus(player) >= 63 else 0
-   one_pair = player['one_pair']
-   two_pairs = player['two_pairs']
-   three_of_a_kind = player['three_of_a_kind']
-   small_straight = player['small_straight']
-   large_straight = player['large_straight']
-   full_house = player['full_house']
+   
+   one_pair = player['one pair']
+   two_pairs = player['two pairs']
+   three_pair = player['three pairs']
+   three_of_a_kind = player['three of a kind']
+   four_of_a_kind = player['four of a kind']
+   five_of_a_kind = player['five of a kind']
+   small_straight = player['small straight']
+   large_straight = player['large straight']
+   full_straight = player['full straight']
+   full_house = player['full house']
+   villa = player['villa']
+   towel = player['towel']
    chance = player['chance']
-   yatzy = player['yatzy']
-   return bonus + one_pair + two_pairs + three_of_a_kind + small_straight + large_straight + full_house + chance + yatzy
+   maxi_yatzy = player['maxi yatzy']
 
+   return (bonus + one_pair + two_pairs + three_pair + three_of_a_kind + four_of_a_kind + five_of_a_kind+
+            + small_straight + large_straight + full_straight + 
+            full_house + villa + towel + chance + maxi_yatzy)
 
+""" player1 = {
+    'rolls': 0,
+    'ones': 0,
+    'twos': 1,
+    'three': 3,
+    'fours': 1230,
+    'fives': 21,
+    'sixes': 1,
+    'one pair': 0,
+    'two pairs': 0,
+    'three pairs': 0,
+    'three of a kind': 0,
+    'four of a kind': 0,
+    'five of a kind': 0,
+    'small straight': 23,
+    'large straight': 123,
+    'full straight': 0,
+    'full house': 23,
+    'villa': 123,
+    'towel': 0,
+    'chance': 0,
+    'maxi yatzy': 0
+}
 
-
-ls = [1,2,3,4,5,6]
-print(results_for_round(ls))
+print(sum_points_for_player(player1)) """
