@@ -1,11 +1,9 @@
 import service
 
-
+#The main function that manages the gameplay of 1 round for 1 player
 def round (player, tabel):
     p = player
     player_name = p['player_name']
-
-
     final_dices = []
     while player["rolls"]  > 0 :
        
@@ -13,30 +11,30 @@ def round (player, tabel):
         print("you have !!!!!!!!!!!!! ",player["rolls"] , "rolls to use" )
         p["rolls"] = p["rolls"] - 1
         rolls_for_player = p["rolls"]
-        
-        
         dices = service.dice_roll(6 - len(final_dices))
         if len(dices) == 0:
             break
 
         possibilities = print_possibilities(final_dices + dices, tabel)
-        
         print("you table " , final_dices)
         print(dices)
-        
-       
-       
         player_choice_for_roll = get_valid_user_choice()
-        #DZIALA ZAJEBIOZA 
+    
         if player_choice_for_roll == 2:
             return final_choice(possibilities, player_name, rolls_for_player)
         
         if player_choice_for_roll == 3:
             if player["rolls"]  == 0:
+                print_possibilities(final_dices + dices,tabel)
+                print(final_dices + dices)
                 return final_choice(possibilities,player_name, rolls_for_player)
             else:
                 continue
-       
+            
+# This if/ functionality embedded in this function is the main gameplay element
+# to remember and save the dice the player wants to keep before rerolling the remaining dice.
+# It also validates the user's selection and displays a user-friendly list from 1 to n.
+
         if player_choice_for_roll == 1:
             while len(dices) > 0 :
                 print("Your dice:", final_dices)
@@ -64,7 +62,10 @@ def round (player, tabel):
     print_possibilities(final_dices,tabel)
     return final_choice(possibilities,player_name, rolls_for_player)
                 
-        
+# The function expects the user to provide a selection to be saved in the array and performs validation 
+# across all possibilities that were passed as arguments for this round. 
+# If an incorrect value is entered, the function informs the user with a printout of the available options.
+
 def final_choice(possibilities, player_name, rolss_left):
     while True:
                 choice = input("Write your choice: ")
@@ -75,7 +76,9 @@ def final_choice(possibilities, player_name, rolss_left):
                     print("Invalid choice. Please enter one of the valid options:", ", ".join(possibilities.keys()))
 
 
-
+# The function prints and simultaneously returns all possible outcomes that can be achieved with the current dice configuration.
+# If no options are available, the function forces the player to select an option that can be filled in their array,
+# which will then be saved in this array with a value of 0.
 
 def print_possibilities(ls, player_table):
     data = service.results_for_round(ls)
@@ -112,6 +115,8 @@ def print_possibilities(ls, player_table):
         
         return data_for_no_possi
 
+# Validation function to check if the user behaves appropriately during the round.
+# The function checks if the user selected between 1-3 for the input.
 def get_valid_user_choice():
     valid_options = [1, 2, 3]
     while True:
@@ -130,29 +135,3 @@ def get_valid_user_choice():
                 print("Invalid choice. Please enter one of the following options: 1, 2, 3.")
         except ValueError:
             print("Invalid input. Please enter a number.")
-
-
-""" h = {       'rolls': 0,
-            'ones': 1,
-            'twos': 1,
-            'three': 1,
-            'fours': 1,
-            'fives': 1,
-            'sixes': 1,
-            'one pair': 1,
-            'two pairs': 1,
-            'three pairs': '-',
-            'three of a kind': 1,
-            'four of a kind':1,
-            'five of a kind': 1,
-            'small straight': '-',
-            'large straight': '-',
-            'full straignt': '-',
-            'full house': '-',
-            'villa': '-',
-            'towel': '-',
-            'chance': 1,
-            'maxi yatzy': 1}
-
-l = [1 ,2 , 3, 4 ,1 , 1]
-print_possibilities(l,h ) """

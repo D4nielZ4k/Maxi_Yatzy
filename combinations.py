@@ -1,7 +1,7 @@
 
 
 ##UPPER TABEL ________________
-#GOD        
+#function does what its name indicates     
 def ones_sixes(ls,numer):
     counts = map_list_to_dict(ls)
     if numer in counts and counts[numer] > 0 :
@@ -10,7 +10,7 @@ def ones_sixes(ls,numer):
 
 
 #LOWER TABEL __________________
-#good
+#function does what its name indicates
 def one_pair(ls):
     counts = map_list_to_dict(ls)
     for num in sorted(counts.keys(), reverse=True):
@@ -18,7 +18,7 @@ def one_pair(ls):
             return num * 2
     return 0
 
-#good
+#function does what its name indicates
 def two_pair(ls):
     counts = map_list_to_dict(ls)
     num_1 = 0
@@ -38,7 +38,7 @@ def two_pair(ls):
         return (num_1 + num_2) * 2 
     return 0 
 
-#GOOD
+#function does what its name indicates
 def three_pair(ls):
     counts = map_list_to_dict(ls)
     num_1 = 0
@@ -61,7 +61,7 @@ def three_pair(ls):
         return (num_1 + num_2 + num_3) * 2 
     return 0
 
-#GOOD
+#function does what its name indicates
 def three_of_a_kind (ls):
     counts = map_list_to_dict(ls)
     for num in sorted(counts.keys(), reverse=True):
@@ -69,7 +69,7 @@ def three_of_a_kind (ls):
             return num * 3
     return 0
 
-#GOOD
+#function does what its name indicates
 def four_of_a_kind (ls):
     counts = map_list_to_dict(ls)
     for num in sorted(counts.keys(), reverse=True):
@@ -78,7 +78,8 @@ def four_of_a_kind (ls):
     return 0
 
 
-#GOOD FIVE OF A KIND Five dice showing the same value.
+# FIVE OF A KIND Five dice showing the same value.
+#function does what its name indicates
 def five_of_a_kind(ls):
     counts = map_list_to_dict(ls)
     for num in sorted(counts.keys(), reverse=True):
@@ -88,7 +89,8 @@ def five_of_a_kind(ls):
 
 
 
-#DONE SMALL STRAIGHT Five dice showing the values from 1-5. 15 pts.
+# SMALL STRAIGHT Five dice showing the values from 1-5. 15 pts.
+#function does what its name indicates
 def smal_straight(ls):
     ref_list =[]
     sort_list = sorted(ls)
@@ -101,6 +103,7 @@ def smal_straight(ls):
     return 0
 
 #DONE   BIG STRAIGHT Five dice showing the values from 2-6. 20 pts.
+#function does what its name indicates
 def large_straight(ls):
     ref_list =[]
     sort_list = sorted(ls)
@@ -113,7 +116,8 @@ def large_straight(ls):
     return 0
 
 
-#DONE Six dice showing the values from 1-6. 21 pts.
+# Six dice showing the values from 1-6. 21 pts.
+#function does what its name indicates
 def full_straight(ls):
    sorted_list = sorted(ls)
    currect = [1, 2 ,3 , 4, 5, 6]
@@ -122,6 +126,7 @@ def full_straight(ls):
 
 
  #DONE FULL HOUSE A Pair and a Three of a Kind.
+ #function does what its name indicates
 def full_house(ls):
     counts = map_list_to_dict(ls)
     pair_num = 0 
@@ -135,6 +140,7 @@ def full_house(ls):
     return 0
  
 #GOOD  VILLA Two Three of a Kinds
+#function does what its name indicates
 def villa (ls):
     counts = map_list_to_dict(ls)
     kinds = 0
@@ -149,6 +155,7 @@ def villa (ls):
 
 
 #DONE TOWER A Pair and a Four of A Kind.
+#function does what its name indicates
 def towel(ls):
     counts = map_list_to_dict(ls)
     of_kind = 0
@@ -162,10 +169,12 @@ def towel(ls):
 
 
 #GOOD
+#function does what its name indicates
 def chance(ls):
     return sum(ls)
 
 #GOOD
+#function does what its name indicates
 def maxi_yatzy (ls):
     counts = map_list_to_dict(ls)
     for num in sorted(counts.keys(), reverse=True):
@@ -174,11 +183,7 @@ def maxi_yatzy (ls):
     return 0
 
 
-numers = [1,2,3,4,5,6]
-
-
-
-
+#function does what its name indicates
 def map_list_to_dict(ls):
     final_dict = dict()
     for i in ls:
@@ -190,13 +195,17 @@ def map_list_to_dict(ls):
 
 
 
+## Simple TESTS list
+#numers = [5, 6, 6, 6, 6, 6]
+
+## Simple TESTS
 #print("one pair from ",numers, "too ===   ",one_pair(numers))
 ##print ("two pair from ",numers, "too ===   ",two_pair(numers))
 #print ("three pair from ",numers, "too ===   ",three_pair(numers))
 
 #print("tre of kind ",numers, "too ===   ",three_of_a_kind(numers))
 #print("four of kind ",numers, "too ===   ",four_of_a_kind(numers))
-
+#print("five of kind " , five_of_a_kind(numers))
 #print("smal_straight ",numers, "too ===   ",smal_straight(numers))
 #print("big_straight ",numers, "too ===   ",large_straight(numers))
 #print("full_house ",numers, "too ===   ",full_house(numers))
