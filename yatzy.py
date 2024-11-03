@@ -5,12 +5,14 @@ def round (player, tabel):
     p = player
     player_name = p['player_name']
     final_dices = []
-    while player["rolls"]  > 0 :
-       
-        print("Player's turn : ___" , player_name," _____")
-        print("you have !!!!!!!!!!!!! ",player["rolls"] , "rolls to use" )
-        p["rolls"] = p["rolls"] - 1
-        rolls_for_player = p["rolls"]
+    p["rolls"] = p["rolls"] - 1
+
+    while p["rolls"]  > 0 :
+        
+        print("Player's turn : " , player_name," ")
+        print("-"*30)
+        print("you have! ", p["rolls"], "rolls to use" )
+        print("-"*30)
         dices = service.dice_roll(6 - len(final_dices))
         if len(dices) == 0:
             break
@@ -21,13 +23,14 @@ def round (player, tabel):
         player_choice_for_roll = get_valid_user_choice()
     
         if player_choice_for_roll == 2:
-            return final_choice(possibilities, player_name, rolls_for_player)
+            return final_choice(possibilities, player_name, p["rolls"])
         
         if player_choice_for_roll == 3:
+            p["rolls"] = p["rolls"] - 1
             if player["rolls"]  == 0:
                 print_possibilities(final_dices + dices,tabel)
                 print(final_dices + dices)
-                return final_choice(possibilities,player_name, rolls_for_player)
+                return final_choice(possibilities,player_name, p["rolls"])
             else:
                 continue
             
@@ -58,9 +61,10 @@ def round (player, tabel):
                 
                 else:
                     print("Choice out of range. Please try again.")
+            p["rolls"] = p["rolls"] - 1
     print(final_dices)
     print_possibilities(final_dices,tabel)
-    return final_choice(possibilities,player_name, rolls_for_player)
+    return final_choice(possibilities,player_name, p["rolls"])
                 
 # The function expects the user to provide a selection to be saved in the array and performs validation 
 # across all possibilities that were passed as arguments for this round. 
@@ -117,6 +121,7 @@ def print_possibilities(ls, player_table):
 
 # Validation function to check if the user behaves appropriately during the round.
 # The function checks if the user selected between 1-3 for the input.
+
 def get_valid_user_choice():
     valid_options = [1, 2, 3]
     while True:

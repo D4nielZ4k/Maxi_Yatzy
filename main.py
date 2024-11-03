@@ -22,7 +22,7 @@ def user():
 
 def empty_table():
     return {
-            'rolls': 0,
+            'rolls': 3,
             'ones': '-',
             'twos': '-',
             'three': '-',
@@ -54,17 +54,17 @@ def main():
     for r in range(20):
         # Iterates through each player.
         for p in players:
+            if r != 0: players[p]['rolls'] += 3
             # Prints the current score table for each player.
             for c in players:
                 service.print_table(service.final_tabel_for_user(c, players[c]))
             # Displays the current round number.
             print('ROUND', r+1)
             # Calculates the number of rolls for the player.
-            rolls = players[p]['rolls'] + 2 
             # Conducts a round for the player and retrieves the results.
             player, choice, var, rolls_player = yz.round({
                 'player_name': p,
-                'rolls': rolls
+                'rolls': players[p]['rolls']
             },
             players[p])
             # Updates the player's score in the dictionary.
